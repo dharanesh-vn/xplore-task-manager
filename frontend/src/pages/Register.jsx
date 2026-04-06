@@ -17,7 +17,7 @@ const Register = () => {
         setError('');
         setSuccess('');
         try {
-            await api.post('/auth/register', { name, email, password });
+            await api.post('/api/auth/register', { name, email, password });
             setSuccess('Registration successful! Please wait for admin approval.');
             setTimeout(() => navigate('/'), 3000);
         } catch (err) {

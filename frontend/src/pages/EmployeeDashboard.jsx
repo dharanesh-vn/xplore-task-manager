@@ -16,7 +16,7 @@ const EmployeeDashboard = () => {
     const fetchTasks = async () => {
         setLoading(true);
         try {
-            const res = await api.get('/tasks/mine');
+            const res = await api.get('/api/tasks/mine');
             setTasks(res.data);
             setError(null);
         } catch (err) {
@@ -32,7 +32,7 @@ const EmployeeDashboard = () => {
 
     const handleStatusChange = async (taskId, newStatus) => {
         try {
-            await api.patch(`/tasks/${taskId}/status`, { status: newStatus });
+            await api.patch(`/api/tasks/${taskId}/status`, { status: newStatus });
             setTasks(tasks.map(task => 
                 task._id === taskId ? { ...task, status: newStatus } : task
             ));

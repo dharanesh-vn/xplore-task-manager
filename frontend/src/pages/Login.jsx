@@ -16,7 +16,7 @@ const Login = () => {
         setLoading(true);
         setError('');
         try {
-            const res = await api.post('/auth/login', { email, password });
+            const res = await api.post('/api/auth/login', { email, password });
             login({ role: res.data.role, isApproved: res.data.isApproved }, res.data.token);
         } catch (err) {
             setError(err.response?.data?.message || 'Login failed');

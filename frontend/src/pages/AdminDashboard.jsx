@@ -20,7 +20,7 @@ const AdminDashboard = () => {
 
     const fetchEmployees = async () => {
         try {
-            const res = await api.get('/admin/employees');
+            const res = await api.get('/api/admin/employees');
             setEmployees(res.data);
         } catch (err) {
             console.error('Failed to fetch employees', err);
@@ -29,7 +29,7 @@ const AdminDashboard = () => {
 
     const fetchTasks = async () => {
         try {
-            const res = await api.get('/tasks/all');
+            const res = await api.get('/api/tasks/all');
             setTasks(res.data);
         } catch (err) {
             console.error('Failed to fetch tasks', err);
@@ -38,7 +38,7 @@ const AdminDashboard = () => {
 
     const handleApprove = async (id, currentStatus) => {
         try {
-            await api.patch(`/admin/approve/${id}`, { isApproved: !currentStatus });
+            await api.patch(`/api/admin/approve/${id}`, { isApproved: !currentStatus });
             fetchEmployees();
         } catch (err) {
             console.error('Failed to update approval status', err);
@@ -48,7 +48,7 @@ const AdminDashboard = () => {
     const handleAssignTask = async (e) => {
         e.preventDefault();
         try {
-            await api.post('/admin/tasks', { title, description, assignedTo });
+            await api.post('/api/admin/tasks', { title, description, assignedTo });
             setMessage('Task assigned successfully!');
             setTitle('');
             setDescription('');

@@ -8,19 +8,7 @@ import AdminDashboard from './pages/AdminDashboard';
 import EmployeeDashboard from './pages/EmployeeDashboard';
 import Navbar from './components/Navbar';
 
-const ProtectedRoute = ({ children, role }) => {
-    const { user, loading } = useContext(AuthContext);
-    
-    if (loading) return <div>Loading...</div>;
-    
-    if (!user) return <Navigate to="/" />;
-    
-    if (role && user.role !== role) {
-        return <Navigate to="/" />;
-    }
-    
-    return children;
-};
+import PrivateRoute from './components/PrivateRoute';
 
 function AppRoutes() {
     return (
@@ -31,14 +19,14 @@ function AppRoutes() {
                     <Route path="/" element={<Login />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/admin/*" element={
-                        <ProtectedRoute role="admin">
+                        <PrivateRoute role="admin">
                             <AdminDashboard />
-                        </ProtectedRoute>
+                        </PrivateRoute>
                     } />
                     <Route path="/employee/*" element={
-                        <ProtectedRoute role="employee">
+                        <PrivateRoute role="employee">
                             <EmployeeDashboard />
-                        </ProtectedRoute>
+                        </PrivateRoute>
                     } />
                 </Routes>
             </div>
