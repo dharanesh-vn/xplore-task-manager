@@ -10,21 +10,21 @@ export const AuthProvider = ({ children }) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const token = localStorage.getItem('token');
+        const token = localStorage.getItem('xplore_token');
         if (token) {
             try {
                 const decoded = jwtDecode(token);
                 // Also get user role and approval status from token optionally, or get from login response
                 setUser(decoded);
             } catch (err) {
-                localStorage.removeItem('token');
+                localStorage.removeItem('xplore_token');
             }
         }
         setLoading(false);
     }, []);
 
     const login = (userData, token) => {
-        localStorage.setItem('token', token);
+        localStorage.setItem('xplore_token', token);
         const decoded = jwtDecode(token);
         // Assuming your standard response or decoded token has these
         setUser({ ...decoded, ...userData });
@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     const logout = () => {
-        localStorage.removeItem('token');
+        localStorage.removeItem('xplore_token');
         setUser(null);
         navigate('/');
     };
