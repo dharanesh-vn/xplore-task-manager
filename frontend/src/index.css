@@ -1,73 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
+
+:root {
+  --bg-color: #f6f5f3;         
+  --text-primary: #1f1e1d;     
+  --text-secondary: #6e6c69;   
+  --border-color: #e3e2de;
+  --accent-color: #8c857d;     
+  --card-bg: transparent;        
+  --danger-color: #a86c67;
+  --success-color: #728274;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
+  font-family: 'Inter', -apple-system, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
   margin: 0;
   padding: 0;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
-  width: 80%;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 60px 20px;
 }
 
 /* Navbar */
 .navbar {
-  background-color: #333;
-  color: white;
-  padding: 15px 20px;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  padding: 24px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .navbar-brand a {
-  color: white;
+  color: var(--text-primary);
   text-decoration: none;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 24px;
+  font-weight: 500;
+  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: -0.5px;
 }
 
 .navbar-menu {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 32px;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
 }
 
 .nav-link {
-  color: #ddd;
+  color: var(--text-secondary);
   text-decoration: none;
+  transition: color 0.3s ease;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
 }
 
 .nav-link:hover {
-  color: white;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--text-primary);
+}
+
+.navbar-user {
+  color: var(--text-secondary);
 }
 
 .btn-secondary {
-  background-color: #555;
-  color: white;
-  border: 1px solid #777;
-  padding: 5px 10px;
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 6px 16px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
 }
 
 .btn-secondary:hover {
-  background-color: #666;
+  border-color: var(--text-primary);
 }
 
 /* Forms */
 .auth-container {
-  margin-top: 50px;
+  margin-top: 100px;
   display: flex;
   justify-content: center;
 }
 
 .auth-card {
-  background-color: white;
-  padding: 30px;
-  border: 1px solid #ccc;
-  width: 400px;
+  background-color: transparent;
+  padding: 40px;
+  width: 100%;
+  max-width: 360px;
 }
 
 .auth-form {
@@ -75,33 +111,61 @@ body {
   flex-direction: column;
 }
 
+.auth-card h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 24px;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  letter-spacing: 0.3px;
 }
 
 input, select, textarea {
   width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
+  padding: 10px 0;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border-color);
   box-sizing: border-box;
+  font-family: inherit;
+  font-size: 15px;
+  transition: border-color 0.3s;
+  color: var(--text-primary);
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--text-primary);
 }
 
 /* Buttons */
 .btn-primary {
-  background-color: #0066cc;
-  color: white;
-  padding: 10px;
+  background-color: var(--text-primary);
+  color: var(--bg-color);
+  padding: 14px 20px;
   border: none;
+  border-radius: var(--radius-sm);
   cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  transition: opacity 0.3s ease;
+  margin-top: 10px;
 }
 
 .btn-primary:hover {
-  background-color: #005bb5;
+  opacity: 0.85;
 }
 
 .btn-primary.full-width {
@@ -109,157 +173,234 @@ input, select, textarea {
 }
 
 .btn-small {
-  padding: 5px 10px;
-  border: none;
+  padding: 6px 12px;
+  font-size: 13px;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  border-radius: var(--radius-sm);
   cursor: pointer;
   margin: 2px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  color: var(--text-primary);
+}
+.btn-small:hover {
+  border-color: var(--text-primary);
 }
 
 .btn-danger {
-  background-color: #cc0000;
-  color: white;
+  color: var(--danger-color);
+  border-color: var(--border-color);
+}
+.btn-danger:hover {
+  border-color: var(--danger-color);
 }
 
 .btn-success {
-  background-color: #009933;
-  color: white;
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+.btn-success:hover {
+  background-color: rgba(0,0,0,0.03);
+  border-color: var(--text-primary);
 }
 
 /* Dashboard */
 .dashboard-header {
-  margin-bottom: 20px;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 10px;
+  margin-bottom: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.dashboard-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px;
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: -0.5px;
 }
 
 .tabs {
-  margin-top: 10px;
+  margin-top: 30px;
+  display: flex;
+  gap: 32px;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .tab-btn {
-  background-color: #eee;
-  border: 1px solid #ccc;
-  padding: 10px 15px;
+  background-color: transparent;
+  color: var(--text-secondary);
+  border: none;
+  border-bottom: 1px solid transparent;
+  padding: 12px 0;
   cursor: pointer;
-  margin-right: 5px;
+  font-family: inherit;
+  font-size: 14px;
+  transition: all 0.3s;
+  margin-bottom: -1px;
+}
+
+.tab-btn:hover {
+  color: var(--text-primary);
 }
 
 .tab-btn.active {
-  background-color: white;
-  border-bottom: 2px solid white;
-  font-weight: bold;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--text-primary);
 }
 
 /* Tables */
 .data-table {
   width: 100%;
   border-collapse: collapse;
-  background-color: white;
-  border: 1px solid #ccc;
+  margin-top: 20px;
 }
 
 .data-table th, .data-table td {
-  padding: 10px;
-  border: 1px solid #ccc;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-color);
   text-align: left;
+  font-size: 14px;
 }
 
 .data-table th {
-  background-color: #f9f9f9;
+  font-weight: 400;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
 }
 
 /* Status Badges */
 .status-badge {
-  padding: 3px 8px;
   font-size: 14px;
-  border: 1px solid #ccc;
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
   display: inline-block;
+  letter-spacing: 0.5px;
 }
 
 .status-approved, .status-completed {
-  background-color: #d4edda;
-  color: #155724;
-  border-color: #c3e6cb;
+  color: var(--success-color);
 }
 
 .status-pending {
-  background-color: #fff3cd;
-  color: #856404;
-  border-color: #ffeeba;
+  color: var(--accent-color);
 }
 
 .status-progress {
-  background-color: #cce5ff;
-  color: #004085;
-  border-color: #b8daff;
+  color: var(--text-primary);
 }
 
 /* Alerts */
+.error-alert, .success-alert {
+  padding: 16px;
+  margin-bottom: 30px;
+  font-size: 14px;
+  border-left: 2px solid;
+  background-color: transparent;
+}
+
 .error-alert {
-  background-color: #f8d7da;
-  color: #721c24;
-  padding: 10px;
-  border: 1px solid #f5c6cb;
-  margin-bottom: 15px;
+  border-color: var(--danger-color);
+  color: var(--danger-color);
 }
 
 .success-alert {
-  background-color: #d4edda;
-  color: #155724;
-  padding: 10px;
-  border: 1px solid #c3e6cb;
-  margin-bottom: 15px;
+  border-color: var(--success-color);
+  color: var(--success-color);
 }
 
 /* Cards */
 .tasks-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
 }
 
 .task-card {
-  background-color: white;
-  border: 1px solid #ccc;
-  width: 300px;
-  padding: 15px;
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  padding: 30px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.task-card:hover {
+  border-color: var(--text-secondary);
 }
 
 .task-header {
-  border-bottom: 1px solid #eee;
-  padding-bottom: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
 .task-title {
-  margin: 0 0 5px 0;
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.3;
+}
+
+.task-desc {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 24px;
 }
 
 .task-meta {
-  margin-top: 15px;
-  font-size: 14px;
-  color: #666;
+  margin-top: 24px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: "Inter", sans-serif;
+  letter-spacing: 0.3px;
 }
 
 .task-actions {
-  margin-top: 15px;
-  border-top: 1px solid #eee;
-  padding-top: 10px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
 }
 
 .form-card {
-  background-color: white;
-  padding: 20px;
-  border: 1px solid #ccc;
-  width: 50%;
+  background-color: transparent;
+  padding: 40px;
+  border: 1px solid var(--border-color);
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 30px;
 }
 
 .pending-approval-card {
-  background-color: white;
-  padding: 30px;
-  border: 1px solid #ccc;
+  padding: 80px 40px;
+  border: 1px solid var(--border-color);
   text-align: center;
-  margin-top: 50px;
+  margin-top: 80px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pending-approval-card h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 20px;
 }
 
 .text-center {
@@ -267,11 +408,23 @@ input, select, textarea {
 }
 
 .text-muted {
-  color: #777;
+  color: var(--text-secondary);
 }
 
 .loader {
-  margin: 50px auto;
+  margin: 100px auto;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 20px;
+  font-style: italic;
   text-align: center;
+  color: var(--text-secondary);
+  letter-spacing: 1px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+}
+
+a {
+  color: var(--text-primary);
 }
