@@ -6,6 +6,24 @@ Built by **Dharanesh** for **Xplore Intellects** — a digital marketing company
 
 ---
 
+## 🚀 Live Demo & Access
+
+The project is fully deployed and accessible online. Since the system uses a strict approval workflow, new employee registrations require an Admin to accept them before they can access their dashboard.
+
+You can experience the complete application by using the Live Deployment links and the default Administrator account detailed below.
+
+### 🌐 Deployment Links
+- **Frontend Application (Vercel):** [https://xplore-task-manager.vercel.app](https://xplore-task-manager.vercel.app)
+- **Backend API (Render):** [https://xplore-backend-44zd.onrender.com](https://xplore-backend-44zd.onrender.com)
+
+### 🔐 Default Admin Credentials
+Log in to the frontend application using these credentials to access the Admin Dashboard. From there, you can view existing tasks, approve new employee accounts, and manage assignments.
+
+- **Email Address:** `admin@xplore.com`
+- **Password:** `admin123`
+
+---
+
 ## Overview
 
 Xplore Task Manager is a full-stack web application designed to streamline how tasks are assigned and tracked within the team at Xplore Intellects. It removes the clutter of generic project management tools by focusing strictly on what matters: registering employees, approving access, assigning tasks, and tracking progress.
@@ -71,7 +89,6 @@ Start the backend server:
 ```bash
 npm start
 ```
-*(Note: On the very first run, the server will automatically seed a default Admin account: `admin@xplore.com` / `admin123`)*
 
 ### 3. Frontend Setup
 Open a new terminal window:
@@ -86,7 +103,7 @@ npm run dev
 
 ### 4. Access the Application
 Open your browser and navigate to `http://localhost:5173`. 
-Log in with the default admin credentials to start approving employee accounts and assigning tasks!
+Log in with the default admin credentials (`admin@xplore.com` / `admin123`) to start approving employee accounts and assigning tasks!
 
 ---
 
