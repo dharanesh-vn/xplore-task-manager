@@ -50,7 +50,7 @@ pipeline {
 
             steps {
 
-                sh 'docker-compose build'
+                sh 'docker compose build'
             }
         }
 
@@ -58,7 +58,7 @@ pipeline {
 
             steps {
 
-                sh 'docker-compose up -d'
+                sh 'docker compose up -d'
             }
         }
     }
