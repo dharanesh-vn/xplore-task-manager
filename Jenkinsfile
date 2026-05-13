@@ -4,15 +4,6 @@ pipeline {
 
     stages {
 
-        stage('Clone Repository') {
-
-            steps {
-
-                git branch: 'main',
-                url: 'https://github.com/dharanesh-vn/xplore-task-manager.git'
-            }
-        }
-
         stage('Frontend Install') {
 
             steps {
